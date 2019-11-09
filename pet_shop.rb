@@ -45,12 +45,12 @@ end
 def remove_pet_by_name(shop,name)
   for animals in shop[:pets]
     if animals[:name] == name
-      animals.shift
+      shop[:pets].delete(animals)
     end
   end
 end
 
-# def add_pet_to_stock(shop,new_pet)
-#   new_pet = {@new_pet}
-#   p new_pet
+# def add_pet_to_stock(shop,pet)
+#   shop[:pets](pet).push
+#   p shop[:pets]
 # end
