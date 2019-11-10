@@ -79,17 +79,17 @@ def customer_can_afford_pet(customer,pet)
     can_buy_pet = false
   end
 end
-#need to figure out how to remove the chosen pet's :price for shop[customer[0]][:name]-commented all integration work out as it's unfinished.
-# def sell_pet_to_customer(shop,pet,customer)
-#   if (find_pet_by_name(shop,pet) && customer_can_afford_pet(customer,pet))
-#       add_pet_to_customer(customer,pet)
-#       customer_pet_count(customer)
-#       remove_pet_by_name(shop,pet)
-#       increase_pets_sold(shop,1)
-#       customer_cash(customer)
-#       remove_customer_cash(customer,900)
-#       customer_cash(customer)
-#       add_or_remove_cash(shop,900)
-#       total_cash(shop)
-#   end
-# end
+#need to figure out how to remove the chosen pet's :price for shop[customer[0]][:name]
+def sell_pet_to_customer(shop,pet,customer)
+  if customer_can_afford_pet(customer,pet)
+      add_pet_to_customer(customer,pet)
+      customer_pet_count(customer)
+      remove_pet_by_name(shop,pet)
+      increase_pets_sold(shop,1)
+      customer_cash(customer)
+      remove_customer_cash(customer,900)
+      customer_cash(customer)
+      add_or_remove_cash(shop,900)
+      total_cash(shop)
+  end
+end
