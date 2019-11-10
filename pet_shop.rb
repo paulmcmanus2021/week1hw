@@ -48,16 +48,18 @@ def remove_pet_by_name(shop,name)
       shop[:pets].delete(animals)
     end
   end
+  stock_count(shop) - 1
 end
 
 def add_pet_to_stock(shop,pet)
   shop[:pets].push("#{pet}")
+  stock_count(shop) + 1
 end
 
 def customer_cash(customer)
   cash = customer[:cash]
 end
-
+#this passes the test but in terms of a shop, doesn't work.
 def remove_customer_cash(customer,amount)
   customer[:cash] -= amount
 end
@@ -77,3 +79,17 @@ def customer_can_afford_pet(customer,pet)
     can_buy_pet = false
   end
 end
+#need to figure out how to remove the chosen pet's :price for shop[customer[0]][:name]-commented all integration work out as it's unfinished.
+# def sell_pet_to_customer(shop,pet,customer)
+#   if (find_pet_by_name(shop,pet) && customer_can_afford_pet(customer,pet))
+#       add_pet_to_customer(customer,pet)
+#       customer_pet_count(customer)
+#       remove_pet_by_name(shop,pet)
+#       increase_pets_sold(shop,1)
+#       customer_cash(customer)
+#       remove_customer_cash(customer,900)
+#       customer_cash(customer)
+#       add_or_remove_cash(shop,900)
+#       total_cash(shop)
+#   end
+# end
