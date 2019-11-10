@@ -80,8 +80,10 @@ def customer_can_afford_pet(customer,pet)
   end
 end
 #need to figure out how to remove the chosen pet's :price for shop[customer[0]][:name]
+
 def sell_pet_to_customer(shop,pet,customer)
-  if customer_can_afford_pet(customer,pet)
+  if find_pet_by_name(shop,pet) != true
+    if customer_can_afford_pet(customer,pet)
       add_pet_to_customer(customer,pet)
       customer_pet_count(customer)
       remove_pet_by_name(shop,pet)
@@ -91,5 +93,8 @@ def sell_pet_to_customer(shop,pet,customer)
       customer_cash(customer)
       add_or_remove_cash(shop,900)
       total_cash(shop)
+    end
+    p "No such pet. Sad day."
   end
-end
+
+#Could someone explain how to read the succesful runs? Why is printing twice? What do the dots mean if anything? Are they to do with tests passed before it reaches the print statement?
